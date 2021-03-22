@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404, HttpResponseRedirect
 from .models import Category, Photo
 
 
 # Create your views here.
-
+def welcome(request):
+    return render(request, 'photos/base.html')
 def gallery(request):
 
     category = request.GET.get('category')
@@ -53,5 +54,12 @@ def addPhoto(request):
     return render(request, 'photos/add.html',context)
 
 
-def deletePhoto(request):
-    return render(request, 'photos/add.html',context)
+# def deletePhoto(request, id):
+
+#     if request.method == 'POST':
+#         instance = Photo.objects.get(id = id)
+#         instance.delete()
+
+#         return redirect('photos/gallery.html')
+
+#     return render(request, 'photos/photo.html')
