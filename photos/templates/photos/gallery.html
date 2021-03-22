@@ -22,18 +22,21 @@
                       <li class="list-group-item">All  </li>
                       <li class="list-group-item">Dapibus ac facilisis in</li>
                       <li class="list-group-item">Vestibulum at eros</li>
+                        <a href="{% url 'add' %}"  class="btn btn-dark btn-sm m-1">Add Photo</a>
                     </ul>
                   </div>
 
             </div>
             <div class="col-md-9">
                 <div class="row">
+
                     <div class="col-md-4">
-                        <div class="card" >
-                            <img class="card-img-top image-thumbnail" src="https://image.shutterstock.com/image-photo/cat-medical-mask-protective-antiviral-260nw-1684423789.jpg" alt="Card image cap">
+                        <div class="card my-2" >
+                            <img class="card-img-top mr-1" src="https://image.shutterstock.com/image-photo/cat-medical-mask-protective-antiviral-260nw-1684423789.jpg" alt="Card image cap">
                             <div class="card-body">
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <small>Category: Pets</small>
                             </div>
+                            <a href=" {% url 'photo' 1 %} " class="btn btn-outline-dark btn-sm m-1">View</a>
                         </div>
                     </div>
                 </div>
