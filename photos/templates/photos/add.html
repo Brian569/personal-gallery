@@ -1,1 +1,55 @@
-<h1>add me</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ 
+    <title>Add photo</title>
+</head>
+<body class="m-5">
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-md-4 ">
+                <a href=" {% url 'gallery' %} " class="btn btn-dark my-3">Go Back</a>
+                
+                <div class="card">
+                    <!-- FORM -->
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %} 
+                        <div class="form-group m-4">
+                            <label >Description</label>
+                            <input name="description" type="text" class="form-control" placeholder="Enter description" >
+                        </div>
+
+                        <div class="form-group m-4">
+                            <label >Select a Category</label>
+                            <select name="category" class="form-control m-1" >
+                                <option value="none">Select a category...</option>
+
+                                {% for category in categories %}
+                                <option value="{{category.id}}">{{category.name}}</option>
+                                {% endfor %}
+                            </select>
+
+                            <div class="form-group m-4">
+                                <label >Create Category</label>
+                                <input name="category_new" type="text" class="form-control" placeholder="Create new Category" >
+                            </div>
+                          </div>
+                        
+
+                        <div class="form-group m-4">
+                          <label >Upload image</label>
+                          <input required name="image" type="file" class="form-control-file btn btn-outline-primary m-4" >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary m-3">Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
