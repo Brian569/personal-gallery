@@ -84,7 +84,6 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT', '5432')
     }
 }
-# DATABASE_URL=postgres://{user}:{password}@{hostname}:{port}/{database-name}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
