@@ -25,12 +25,7 @@
                 <div style="height: 90vh;">
                     <img style="max-width: 70%; max-height: 70vh;" class="card-img-top mr-1" src=" {{ photo.image.url }} " alt="Card image cap">
 
-                    <!-- <form method="POST" >
-                        {% csrf_token %} 
-                        <div class="form-group m-4">
-                            <a type="submit" class=" btn btn-outline-danger" >Delete</a>
-                         </div>
-                    </form> -->
+                    
 
               
                 </div>
@@ -41,6 +36,18 @@
                 <p>
                     {{photo.description}}
                 </p>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <form action=" {% url 'delete' photo.id %} " method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete" class="btn btn-danger this photo">
+                        </form>
+                    </div>
+                    
+                    
+                </div>
                 </div>
             </div>
         </div>

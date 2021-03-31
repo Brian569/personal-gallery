@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect,get_object_or_404, HttpResponseRedirect
 from .models import Category, Photo
+from django.contrib import messages
 
 
 # Create your views here.
 def welcome(request):
+
     return render(request, 'photos/base.html')
 def gallery(request):
 
@@ -47,6 +49,7 @@ def addPhoto(request):
             image = image,
         )
 
+        messages.info(request, 'Photo added successfully!')
         return redirect('gallery')
 
     context = {'categories': categories }
@@ -54,12 +57,26 @@ def addPhoto(request):
     return render(request, 'photos/add.html',context)
 
 
-# def deletePhoto(request, id):
+def deletePhoto(request, pk):
+    
+    if request.method == 'POST':
+        instance = Photo.objects.get(pk =pk)
+        instance.delete()
+        print('photo deleted')
 
-#     if request.method == 'POST':
-#         instance = Photo.objects.get(id = id)
-#         instance.delete()
+        messages.info(request, 'Photo deleted successfully!')
 
-#         return redirect('photos/gallery.html')
+        return redirect('gallery')
 
-#     return render(request, 'photos/photo.html')
+    else:
+        return render(request, 'photos/photo.html')        
+
+    
+def updatePhoto(request):
+    if request == 'POST':
+        replace = Photo.objects.get()
+        replace.update()
+        print('Photo replaced!')
+
+    else:
+        return render(request, 'photos/update.html')        

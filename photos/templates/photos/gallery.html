@@ -23,6 +23,14 @@
     <div class="container">
         <h1 class="text-center ">MY GALLERY</h1>
         <br><hr>
+
+        
+        {% for message in messages %}
+            <div class=" btn-success text-center" >
+                <h1> {{message}} </h1>
+            </div>
+        {% endfor %}
+            
         <div class="row">
             <div class="col-md-3 ">
 
@@ -44,11 +52,11 @@
                       {% for category in categories %}
 
                       <li class="list-group-item">
-                        <a  href="{% url 'gallery' %}?category={{category.name}} ">{{ category.name}}</a>
+                        <a  href="{% url 'gallery'  %}?category={{category.name}} ">{{ category.name}}</a>
                       </li>
 
                       {% endfor %}
-                        <!-- <a href="{% url 'add' %}"  class="btn btn-dark btn-sm m-1">Add Photo</a> -->
+                        <a href="{% url 'add' %}"  class="btn btn-dark btn-sm m-1">Add Photo</a>
                     </ul>                   
                   </div>
                </div>

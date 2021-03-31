@@ -22,5 +22,3 @@ class Photo(models.Model):
 
     def save_photo(self):
         self.save()
-    
-# 
