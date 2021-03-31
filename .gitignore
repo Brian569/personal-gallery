@@ -135,6 +135,7 @@ virtual/
 .spyproject
 *migrations*
 
+virtual/
 # Rope project settings
 .ropeproject
 
